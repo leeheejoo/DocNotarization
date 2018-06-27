@@ -1,0 +1,17 @@
+.registration-main {
+    background: rgb(255, 255, 255);
+    height: 92vh;
+    text-align: center;
+    padding: auto;
+}
+
+.registration-file-input {
+    margin-top: 40vh;
+    margin-right: 30px;
+    width: 300px;
+}
+
+.registration-file-buttton {
+    margin-top: 40vh;
+    width: 300px;
+}

@@ -1,3 +1,8 @@
-<p>
-  registration works!
-</p>
+<div class="registration-main">
+  <form  #modalForm="ngForm">
+    <mat-form-field class="registration-file-input">
+      <input matInput placeholder="File path" value="">
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="registration-file-button" (click)="openFile($event)">Open</button>
+  </form>
+</div>
