@@ -1,15 +1,15 @@
 <div class="registration">
 	<mat-form-field class="registration-user-name-input"> 
-		<input matInput placeholder="Document Id" [value]="documentId"> 
+		<input matInput placeholder="Document id" [value]="documentId"> 
 	</mat-form-field> 
 	<div class="registration-file-wrapper">
 		<mat-form-field class="registration-file-input"> 
-			<input matInput placeholder="File path" value="{{filePath}}"> 
+			<input matInput placeholder="File name" value="{{fileName}}"> 
 		</mat-form-field> 
-		<input type="file" id="upload" style="display:none" accept=".pdf" (change)="uploadFile($event.target.files[0])">
+		<input type="file" id="upload" style="display:none" accept=".pdf" (change)="getFileInfo($event.target.files[0])">
 		<label for="upload" >
 			<mat-icon class="registration-file-open-buttton" >description</mat-icon>
 		</label>
 	</div>
-	<button mat-raised-button color="primary" class="registration-register-button" (click)="registerFile(filePath)">Register</button> 
+	<button mat-raised-button color="primary" class="registration-register-button" (click)="registerFile()">Register</button> 
 </div>
