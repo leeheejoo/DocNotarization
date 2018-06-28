@@ -1,6 +1,6 @@
 <div class="registration">
 	<mat-form-field class="registration-user-name-input"> 
-		<input matInput placeholder="Document id" [value]="documentId"> 
+		<input matInput placeholder="Document id" [(ngModel)]="documentId"> 
 	</mat-form-field> 
 	<div class="registration-file-wrapper">
 		<mat-form-field class="registration-file-input"> 
@@ -11,5 +11,5 @@
 			<mat-icon class="registration-file-open-buttton" >description</mat-icon>
 		</label>
 	</div>
-	<button mat-raised-button color="primary" class="registration-register-button" (click)="registerFile()">Register</button> 
+	<button mat-raised-button color="primary" class="registration-register-button" (click)="registerFile($e)">Register</button> 
 </div>

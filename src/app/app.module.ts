@@ -6,12 +6,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './components/main/registration/registration.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatToolbarModule, MatFormFieldModule, MatInputModule, MatDialogModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatToolbarModule, MatFormFieldModule, MatInputModule, MatDialogModule, MatIconModule, MatDividerModule, MatListModule} from '@angular/material';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { DocumentsComponent } from './components/main/documents/documents.component';
 import { FormsModule } from '@angular/forms';
 import { AlertDialogComponent } from './components/alert-dialog/alert-dialog.component';
 import { MainComponent } from './components/main/main.component';
+import { PdfDialogComponent } from './components/pdf-dialog/pdf-dialog.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { StoreModule } from '@ngrx/store';
+import { documentReducer } from './reducers/documentReducer';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'registration', pathMatch: 'full' },
@@ -27,7 +31,8 @@ const routes: Routes = [
     NavigationComponent,
     DocumentsComponent,
     AlertDialogComponent,
-    MainComponent
+    MainComponent,
+    PdfDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,11 +45,18 @@ const routes: Routes = [
     MatInputModule,
     MatDialogModule,
     MatIconModule,
+    PdfViewerModule,
+    MatDividerModule,
+    MatListModule,
     RouterModule.forRoot(routes, { useHash: true }),
+    StoreModule.forRoot({ 
+      'documentReducer' : documentReducer, 
+   })
   ],
   providers: [IpfsService],
   entryComponents: [
-    AlertDialogComponent
+    AlertDialogComponent,
+    PdfDialogComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -28,14 +28,25 @@ export class RegistrationComponent implements OnInit {
 		this.file = file;
 	}
 
-	registerFile() {
+	registerFile(event) {
 
-		let reader = new FileReader();
-		reader.onload = () => {
-			let str64 = base64.encode(reader.result);
-			//console.log(str64);
-		};
-		reader.readAsArrayBuffer(this.file);
+		if(this.documentId && this.documentId !== "" && this.file) {
+
+			let reader = new FileReader();
+
+			reader.onload = () => {
+				let str64 = base64.encode(reader.result);
+				this.ipfsService.saveDocument(this.documentId, this.fileName, str64);
+
+				this.documentId = "";
+				this.file = undefined;
+				this.fileName = "";
+			};
+
+			reader.readAsArrayBuffer(this.file);
+		}
+
+
 /*
 		this.dialog.closeAll();
 

@@ -1,11 +1,53 @@
 .documents {
     background: rgb(255, 255, 255);
-    height: 92vh;
+    height: 94vh;
     text-align: center;
     float: left;
     width: 50%;
 }
 
-.documents-show-buttton {
-    margin-top: 40vh;
+.documents-header {
+    margin-top: 1px;
+    height: 6vh;
+    font-size: 18px;
+    line-height:1.6em;
+}
+
+.documents-header-id {
+    width: 15%;
+    font-size: 16px;
+}
+
+.documents-header-name {
+    width: 60%;
+    font-size: 16px;
+
+}
+
+.documents-header-hash {
+    width: 25%;
+    font-size: 16px;
+}
+
+.documents-list {
+    height: 88vh;
+    overflow-y: visible;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+}
+
+.documents-item-id {
+    width: 15%;
+    font-size: 16px;
+}
+
+.documents-item-name {
+    width: 60%;
+    font-size: 16px;
+
+}
+
+.documents-item-hash {
+    width: 25%;
+    font-size: 14px;
 }

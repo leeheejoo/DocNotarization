@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { IpfsService } from '../../../service/ipfs-service.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { DOCUMENT_ADD, Document, DocumentInitAction, docState } from '../../../reducers/documentReducer';
 import {AlertDialogComponent as AlertDialog} from '../../alert-dialog/alert-dialog.component';
 
 @Component({
@@ -10,16 +13,38 @@ import {AlertDialogComponent as AlertDialog} from '../../alert-dialog/alert-dial
 })
 export class DocumentsComponent implements OnInit {
 
-	constructor(private ipfsService : IpfsService, public dialog: MatDialog) {
+	docOb : Observable<docState>;
+	documents : Array<Document>;
+
+	constructor(private ipfsService : IpfsService,  private store: Store<docState>, public dialog: MatDialog) {
 		
+		this.docOb= this.store.select('documentReducer');
+
+		this.docOb.subscribe(state => {
+
+			if( (state.actionType === DOCUMENT_ADD) && state.documents){	
+				this.documents = state.documents;
+				//console.log(this.documents);
+			}
+
+		});
+
 	}
 
 	ngOnInit() {
 
+		let documents = JSON.parse(localStorage.getItem('dnf-documents'));
+		if(documents) {
+			this.documents = documents;
+
+			let action = new DocumentInitAction(documents);
+			this.store.dispatch(action);
+		}		
+
 	}
 
-	showDocument(){
-		this.ipfsService.getDocument('QmPsdMann6D9N3isqezHYooVecTzyNdr9pJSuJ5bSXMSgg');
+	showDocument(hash){
+		this.ipfsService.getDocument(hash);
 	}
 
 }

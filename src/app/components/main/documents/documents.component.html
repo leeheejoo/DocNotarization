@@ -1,3 +1,15 @@
 <div class="documents">
-	<button mat-raised-button color="primary" class="documents-show-buttton" (click)="showDocument()">Show document</button>   
+	<mat-toolbar class="documents-header"  color="primary">
+		<span class="documents-header-id">ID</span> 
+		<span class="documents-header-name">Name</span> 
+		<span class="documents-header-hash">Hash</span> 
+	</mat-toolbar>
+	<mat-list class="documents-list" >
+		<mat-list-item *ngFor="let doc of documents" (dblclick)="showDocument(doc.hash)"> 
+			<p class="documents-item-id"> {{doc.id}} </p>
+			<p class="documents-item-name"> {{doc.fileName}} </p>
+			<p class="documents-item-hash"> {{doc.hash}} </p>
+			<mat-divider></mat-divider>
+		</mat-list-item>
+	</mat-list>
 </div>
