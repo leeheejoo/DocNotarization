@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import {AlertDialogComponent as AlertDialog} from '../alert-dialog/alert-dialog.component';
+import {AlertDialogComponent as AlertDialog} from '../../alert-dialog/alert-dialog.component';
 
 @Component({
 	selector: 'app-registration',
@@ -9,6 +9,9 @@ import {AlertDialogComponent as AlertDialog} from '../alert-dialog/alert-dialog.
 })
 export class RegistrationComponent implements OnInit {
 
+	documentId : string = "";
+	filePath : string = "";
+
 	constructor(public dialog: MatDialog) { 
 
 	}
@@ -16,8 +19,12 @@ export class RegistrationComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	openFile(e) {
+	uploadFile(path) {
 
+		console.log(path.name);
+
+		this.filePath = path.name;
+/*
 		this.dialog.closeAll();
 
 		let dialogRef = this.dialog.open(AlertDialog,{
@@ -25,6 +32,20 @@ export class RegistrationComponent implements OnInit {
 			data: { 
 				title:"Test", 
 				message:'test!!'
+			} 
+		});
+*/
+	}
+
+	registerFile(path) {
+
+		this.dialog.closeAll();
+
+		let dialogRef = this.dialog.open(AlertDialog,{
+			minWidth: '300px',
+			data: { 
+				title:"Test", 
+				message:path
 			} 
 		});
 	}

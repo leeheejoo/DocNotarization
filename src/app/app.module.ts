@@ -4,18 +4,19 @@ import { AppComponent } from './app.component';
 import { IpfsService } from './service/ipfs-service.service';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { RegistrationComponent } from './components/registration/registration.component';
+import { RegistrationComponent } from './components/main/registration/registration.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatToolbarModule, MatFormFieldModule, MatInputModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatToolbarModule, MatFormFieldModule, MatInputModule, MatDialogModule, MatIconModule} from '@angular/material';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { DocumentsComponent } from './components/documents/documents.component';
+import { DocumentsComponent } from './components/main/documents/documents.component';
 import { FormsModule } from '@angular/forms';
 import { AlertDialogComponent } from './components/alert-dialog/alert-dialog.component';
+import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'registration', pathMatch: 'full' },
-	{ path: 'registration', component: RegistrationComponent },
-	{ path: 'documents', component: DocumentsComponent },
+	{ path: 'registration', component: MainComponent },
+//	{ path: '...', component: DocumentsComponent },
 	{ path: '**', redirectTo: 'registration', pathMatch: 'full'  }
 ];
 
@@ -25,7 +26,8 @@ const routes: Routes = [
     RegistrationComponent,
     NavigationComponent,
     DocumentsComponent,
-    AlertDialogComponent
+    AlertDialogComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
+    MatIconModule,
     RouterModule.forRoot(routes, { useHash: true }),
   ],
   providers: [IpfsService],

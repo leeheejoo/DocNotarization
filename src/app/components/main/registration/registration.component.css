@@ -1,0 +1,35 @@
+.registration {
+    background: rgb(255, 255, 255);
+    height: 92vh;
+    text-align: center;
+    float: left;
+    width: 50%;
+
+}
+
+.registration-user-name-input {
+    margin-top: 30vh;
+    width: 334px;
+}
+
+.registration-file-wrapper {
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+}
+
+.registration-file-input {
+    margin-right: 10px;
+    width: 300px;
+}
+
+.registration-file-open-buttton {
+    color:#3F51B5;
+    font-size: 33px;
+    vertical-align: bottom;
+    padding-bottom: 25px;
+
+}
+
+.registration-register-buttton {
+    margin-top: 5vh;
+}
