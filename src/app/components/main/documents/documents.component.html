@@ -5,7 +5,9 @@
 		<span class="documents-header-hash">Hash</span> 
 	</mat-toolbar>
 	<mat-list class="documents-list" >
-		<mat-list-item *ngFor="let doc of documents" (dblclick)="showDocument(doc.hash)"> 
+		<mat-list-item *ngFor="let doc of documents; let idx = index;" (dblclick)="showDocument(doc.hash, idx)" class="documents-item" 
+		[style.backgroundColor]="selectedIndex == idx ? '#6ca2df': ''"
+		[style.color]="selectedIndex == idx ? 'white': ''"> 
 			<p class="documents-item-id"> {{doc.id}} </p>
 			<p class="documents-item-name"> {{doc.fileName}} </p>
 			<p class="documents-item-hash"> {{doc.hash}} </p>

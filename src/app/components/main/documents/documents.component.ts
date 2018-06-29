@@ -15,6 +15,7 @@ export class DocumentsComponent implements OnInit {
 
 	docOb : Observable<docState>;
 	documents : Array<Document>;
+	selectedIndex : number;
 
 	constructor(private ipfsService : IpfsService,  private store: Store<docState>, public dialog: MatDialog) {
 		
@@ -43,8 +44,10 @@ export class DocumentsComponent implements OnInit {
 
 	}
 
-	showDocument(hash){
+	showDocument(hash, idx){
+		this.selectedIndex = idx;
 		this.ipfsService.getDocument(hash);
+		//console.log(idx);
 	}
 
 }

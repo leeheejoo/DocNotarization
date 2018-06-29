@@ -30,10 +30,23 @@
 }
 
 .documents-list {
-    height: 88vh;
+    height: 87vh;
     overflow-y: visible;
     overflow-x: hidden;
     overflow-wrap: break-word;
+}
+
+.documents-item {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.documents-item:hover {
+    background-color: #b9d8fc
 }
 
 .documents-item-id {

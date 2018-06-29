@@ -28,7 +28,7 @@ export class RegistrationComponent implements OnInit {
 		this.file = file;
 	}
 
-	registerFile(event) {
+	registerFile() {
 
 		if(this.documentId && this.documentId !== "" && this.file) {
 
