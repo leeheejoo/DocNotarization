@@ -16,6 +16,7 @@ import { PdfDialogComponent } from './components/pdf-dialog/pdf-dialog.component
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { StoreModule } from '@ngrx/store';
 import { documentReducer } from './reducers/documentReducer';
+import { ClipboardModule } from 'ng2-clipboard';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'registration', pathMatch: 'full' },
@@ -48,6 +49,7 @@ const routes: Routes = [
     PdfViewerModule,
     MatDividerModule,
     MatListModule,
+    ClipboardModule,
     RouterModule.forRoot(routes, { useHash: true }),
     StoreModule.forRoot({ 
       'documentReducer' : documentReducer, 

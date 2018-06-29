@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { DOCUMENT_ADD, Document, DocumentInitAction, docState } from '../../../reducers/documentReducer';
 import {AlertDialogComponent as AlertDialog} from '../../alert-dialog/alert-dialog.component';
+import { ClipboardService } from 'ng2-clipboard/ng2-clipboard';
 
 @Component({
 	selector: 'app-documents',
@@ -17,7 +18,7 @@ export class DocumentsComponent implements OnInit {
 	documents : Array<Document>;
 	selectedIndex : number;
 
-	constructor(private ipfsService : IpfsService,  private store: Store<docState>, public dialog: MatDialog) {
+	constructor(private ipfsService : IpfsService,  private clipboard: ClipboardService, private store: Store<docState>, public dialog: MatDialog) {
 		
 		this.docOb= this.store.select('documentReducer');
 
@@ -42,6 +43,10 @@ export class DocumentsComponent implements OnInit {
 			this.store.dispatch(action);
 		}		
 
+	}
+
+	copyClipboard(hash) {
+		this.clipboard.copy(hash);
 	}
 
 	showDocument(hash, idx){
